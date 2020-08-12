@@ -1,3 +1,3 @@
 # spam-sms
 run with python
-Contoh : python spamsms.py tsel/xl 628**** jumlahpesan
+Contoh : python spam.py tsel/xl 628**** jumlahpesan
